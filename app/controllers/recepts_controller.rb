@@ -6,13 +6,13 @@ layout 'application'
   # GET /recepts.xml
   def index
     # @recepts = Recept.all
-    if params[:kat_id].type == "String"
+    if params[:kat_id].type == String
       @recepts = Recept.paginate( :all, :order => "naziv ASC",
-       :conditions => [ "category_id IS ?", params[:kat_id] ],
+       :conditions => [ "category_id LIKE ?", params[:kat_id] ],
        :per_page => 10, :page => params[:page] )
     elsif params[:kat_id] == "ostale"
       @recepts = Recept.paginate( :all, :order => "naziv ASC",
-        :conditions => [ "category_id IS NULL" ],
+        :conditions => [ "category_id = NULL" ],
         :per_page => 10, :page => params[:page] )
     else
       @recepts = Recept.paginate( :all, :order => "naziv ASC",
