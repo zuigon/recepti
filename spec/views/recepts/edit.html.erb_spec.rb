@@ -18,7 +18,8 @@ describe "/recepts/edit.html.erb" do
     response.should have_tag("form[action=#{recept_path(@recept)}][method=post]") do
       with_tag('input#recept_naziv[name=?]', "recept[naziv]")
       with_tag('textarea#recept_body[name=?]', "recept[body]")
-      with_tag('input#recept_category_id[name=?]', "recept[category_id]")
+      with_tag('select#recept_category_id') # category menu
+      with_tag('input#recept_new_category_name') # or new category name
     end
   end
 end

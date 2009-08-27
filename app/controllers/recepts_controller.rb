@@ -5,18 +5,19 @@ layout 'application'
   # GET /recepts
   # GET /recepts.xml
   def index
+    per_page = 10
     # @recepts = Recept.all
     if params[:kat_id] and params[:kat_id] != "ostale"
       @recepts = Recept.paginate( :all, :order => "naziv ASC",
        :conditions => [ "category_id = ?", params[:kat_id] ],
-       :per_page => 10, :page => params[:page] )
+       :per_page => per_page, :page => params[:page] )
     elsif params[:kat_id] == "ostale"
       @recepts = Recept.paginate( :all, :order => "naziv ASC",
         :conditions => [ "category_id = NULL" ],
-        :per_page => 10, :page => params[:page] )
+        :per_page => per_page, :page => params[:page] )
     else
       @recepts = Recept.paginate( :all, :order => "naziv ASC",
-        :per_page => 10, :page => params[:page] )
+        :per_page => per_page, :page => params[:page] )
     end
 
     respond_to do |format|
@@ -29,7 +30,10 @@ layout 'application'
   # GET /recepts/1.xml
   def show
     @recept = Recept.find(params[:id])
-    @category = (@recept.category_id) ? Category.find(@recept.category_id) : nil
+    # @category = (@recept.category_id) ? Category.find(@recept.category_id) : nil
+    @category = begin
+                  Category.find(@recept.category_id)
+                rescue; ""; end
 
     respond_to do |format|
       format.html # show.html.erb
