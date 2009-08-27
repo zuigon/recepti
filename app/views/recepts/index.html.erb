@@ -1,0 +1,33 @@
+<% title "Recepti" %>
+
+<p style="float: right; margin-right: 5%;" id="novi_recept_link_gore"><%= link_to 'Novi recept', new_recept_path %></p>
+
+<div id="recepti">
+
+<% if @recepts[0] -%>
+	<% @recepts.each do |recept| -%>
+			<h2><%= link_to h(truncate(recept.naziv, :length => 20)), recept %></h2>
+			<p><%= simple_format(recept.body) %></p>
+			<p class="category">Kategorija: <%= if recept.category_id; begin
+																							h(Category.find(recept.category_id).name)
+																						rescue Exception => e; "<i>Nema</i>"; end; end -%></p>
+			<p><%= link_to 'Prikaži', recept %> |
+			<%= link_to 'Promijeni', edit_recept_path(recept) %> |
+			<%= link_to 'Obriši', recept, :confirm => 'Are you sure?', :method => :delete %></p>
+	<% end #each %><div id="hr_div"></div>
+
+<% else -%>
+<br />
+<%= content_tag :div, "Nema recepata u ovoj kategoriji", :id => "flash_error" %>
+<br />
+<% end -%>
+
+</div>
+
+<% if @recepts[0] -%>
+<p id="novi_recept_link"><%= link_to 'Novi recept', new_recept_path %></p>
+<% end -%>
+
+<br />
+<%= @recepts[0] ? will_paginate(@recepts) : nil %>
+<br />

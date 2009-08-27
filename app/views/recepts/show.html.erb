@@ -1,0 +1,19 @@
+<% title "Recepti" %>
+
+<p id="show_naslov">
+  <%= @recept.naziv %>
+</p>
+<div class="hr_div" />
+<p>
+  <%= simple_format(@recept.body) %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @category.type == Class ? h(@category.name) : "<i>Nema</i>" %>
+</p>
+
+
+<p><%= link_to 'Promijeni', edit_recept_path(@recept) %> |
+<%= link_to 'Nazad', recepts_path %> |
+<%= link_to 'Obriši', @recept, :confirm => 'Are you sure?', :method => :delete %></p>

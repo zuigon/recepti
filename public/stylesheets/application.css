@@ -1,0 +1,198 @@
+/* @override 
+	http://localhost:3000/stylesheets/application.css
+	http://localhost:3000/stylesheets/application.css?1251326093
+	http://localhost:3000/stylesheets/application.css?1251326391
+	http://localhost:3000/stylesheets/application.css?1251326767
+	http://localhost:3000/stylesheets/application.css?1251327779
+	http://localhost:3000/stylesheets/application.css?1251327919
+	http://localhost:3000/stylesheets/application.css?1251372014
+	http://localhost:3000/stylesheets/application.css?1251375809
+	http://localhost:3000/stylesheets/application.css?1251377135
+	http://localhost:3000/stylesheets/application.css?1251377286
+	http://localhost:3000/stylesheets/application.css?1251383176
+	http://localhost:3000/stylesheets/application.css?1251383842
+	http://localhost:3000/stylesheets/application.css?1251384077
+*/
+
+td#footer {
+	text-align: center;
+	width: 100%;
+	padding: 5px;
+	float: none;
+}
+
+ul {
+	padding-left: 30px;
+	margin: 0;
+}
+
+body {
+  background-color: #FFF;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  color: #0000FF;
+}
+
+body {
+  background-color: #4B7399;
+}
+
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px;
+}
+
+div#main {
+	float: right;
+	width: 80%;
+}
+
+p#show_naslov {
+	text-transform: capitalize;
+	font-size: 14pt;
+	border-bottom-color: #eaeaea;
+}
+
+div#hr_div {
+	height: 2px;
+	width: 98%;
+	border-bottom: 2px solid #eaeaea;
+}
+
+div#sidebar {
+	width: 15%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-bottom: 15px;
+	padding-top: 10px;
+	float: left;
+	border-right: 2px solid #ececec;
+}
+
+a#kat_link {
+}
+
+li#kat_link {
+	margin-top: 5px;
+}
+
+p#novi_recept_link_gore {
+	margin-top: -10px;
+}
+
+div#kat_label {
+	margin-bottom: 10px;
+	font: 12pt "Lucida Grande", Lucida, Verdana, sans-serif;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.clear {
+  clear: both;
+}
+
+
+
+#recepti h2 {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+p.footer {
+	display: none;
+}
+
+#footer {
+	display: inline-block;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	position: static;
+	right: 10%;
+	left: 10%;
+	width: inherit;
+}
+
+#recepti h2 .comments {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+
+#comments {
+  font-size: 12px;
+  background-color: #DDD;
+  padding: 0 20px;
+  width: 325px;
+  border: solid 1px #333;
+}
+
+.comment {
+  border-bottom: solid 1px #999;
+  margin: 15px 0;
+}
+
+.comment .author_name {
+  font-weight: bold;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 8px;
+}
+#errorExplanation ul {
+  margin: 2px 24px;
+}
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc;
+}

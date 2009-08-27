@@ -1,0 +1,26 @@
+<div id="kat_label">Kategorije:</div>
+
+<%
+	li_id = 'kat_link'
+	categories = ""
+	categories += "<ul>"
+	# Sve kat.
+	categories += "<li id='#{li_id}'>"
+	categories += link_to("Sve", recepts_path)
+	categories += "</li>\n"
+
+	Category.find(:all).each { |category|
+		categories += "<li id='kat_link'>"
+		categories += "<i>" + link_to(category.name, "/recepts/?kat_id=" + category.id.to_s) + "</i>"
+		categories += "</li>\n"
+	}
+	# Ostale kat.
+	categories += "<li id='#{li_id}'>"
+	categories += "<i>"
+	categories += link_to("Ostale", "/recepts/?kat_id=ostale")
+	categories += "</i>"
+	categories += "</li>\n"
+
+	categories += "</ul>\n"
+-%>
+<%= categories %>
