@@ -9,9 +9,9 @@
 	categories += link_to("Sve", recepts_path)
 	categories += "</li>\n"
 
-	Category.find(:all).each { |category|
+	Category.find(:all, :order => "name").each { |category|
 		categories += "<li id='kat_link'>"
-		categories += "<i>" + link_to(category.name, "/recepts/?kat_id=" + category.id.to_s) + "</i>"
+		categories += "<i>" + link_to(category.name, "/" + params[:controller] + "/?kat_id=" + category.id.to_s) + "</i>"
 		categories += "</li>\n"
 	}
 	# Ostale kat.
