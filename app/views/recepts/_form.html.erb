@@ -7,10 +7,10 @@
   </p>
   <p>
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :cols => "80", :style => "font-size: 12px;", :value => @recept_template -%>
   </p>
   <p>
-    <%= f.label :category_id %><br />
+    <% #= f.label 'Kategorija:' %><br />
     <% #= f.text_field :category_id %><br />
     <%= f.collection_select(:category_id , Category.find(:all), :id, :name, { :prompt => 'Odaberi kategoriju' }) %><br />
     ili napravi novu:<br />

@@ -5,11 +5,11 @@
 </p>
 <div class="hr_div" />
 <p>
-  <%= simple_format(@recept.body) %>
+  <%= @recept.body %>
 </p>
 
 <p>
-  <b>Category:</b>
+  <b>Kategorija:</b>
   <%= @category.type == Class ? h(@category.name) : "<i>Nema</i>" %>
 </p>
 

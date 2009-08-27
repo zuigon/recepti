@@ -41,6 +41,7 @@ layout 'application'
   # GET /recepts/new.xml
   def new
     @recept = Recept.new
+    @recept_template = File.open(RAILS_ROOT + "/app/views/shared/_recept_template.erb").readlines.join
 
     respond_to do |format|
       format.html # new.html.erb

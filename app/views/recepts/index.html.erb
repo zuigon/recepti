@@ -7,7 +7,7 @@
 <% if @recepts[0] -%>
 	<% @recepts.each do |recept| -%>
 			<h2><%= link_to h(truncate(recept.naziv, :length => 20)), recept %></h2>
-			<p><%= simple_format(recept.body) %></p>
+			<p><%= recept.body %></p>
 			<p class="category">Kategorija: <%= if recept.category_id; begin
 																							h(Category.find(recept.category_id).name)
 																						rescue Exception => e; "<i>Nema</i>"; end; end -%></p>

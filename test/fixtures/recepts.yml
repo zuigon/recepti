@@ -1,7 +1,7 @@
 
 1:
   naziv: Burek s mesom
-  body:  >
+  body:  |
     *Sastojci:*
     sastojci za 2 osobe:
     15 dag brašna
@@ -23,7 +23,7 @@
 
 2:
   naziv: Dalmatinski pršut
-  body:  >
+  body:  |
     *Sastojci:*
     
     – dalmatinski pršut (očišćen – izrezan) 0,95
@@ -42,7 +42,7 @@
 
 3:
   naziv: Francuska salata
-  body:  >
+  body:  |
     *Sastojci:*
     4 krumpira, kuhana, oguljena i izrezana na kockice
     3 mrkve, kuhane, oguljene i izrezane na kockice
@@ -62,7 +62,7 @@
 
 4:
   naziv: Bosanski lonac
-  body:  >
+  body:  |
     *Sastojci:*
     50 dag govedine
     50 dag svinjetine
@@ -91,15 +91,15 @@
 
 5:
   naziv: Burek
-  body:  >
+  body:  |
     *Sastojci:*
     tijesto:
-    40 dag brašna
-    malo soli
-    malo limunova soka
-    2 dl tople vode
-    0,2 dl ulja
-    pola jajeta
+    * 40 dag brašna
+    * malo soli
+    * malo limunova soka
+    * 2 dl tople vode
+    * 0,2 dl ulja
+    * pola jajeta
     nadljev:
     30 dag masne svinjetine bez kosti
     20 dag masne govedine bez kosti
@@ -113,13 +113,13 @@
     *Priprema:*
     (stari recept, orginalno prepisan) Od brašna, pola jajeta, soli, limunova soka i vode zamijesi se tijesto da otpada od daske i ruke te da bude mjehurasto, stavi se na dobro nabrašnjenu dasku i premaže uljem da se ne okori, te se pusti stajati 45 minuta. Stol se prekrije stolnjakom i pospe brašnom. Tijesto se izvuče na jednu i drugu stranu stola po duljini, koliko se lako da vući valjkom se izravna da se valja samo po duljini, namaže se rastopljenom mašću i sa svih se strana polagano vuče tako da se najprije dobije duljina stola, a onda se izvlači u širinu. Izvlači se tako dugo dok se da, tj. dok još ne puca rub. Nakon toga se rub odreže (ako se tom rubu doda još malo vode i dobro izmiješa, pa se pusti 3/4 sata stajati, dat će se razvlačiti kao i ono prvo), a tijesto se pusti najmanje 10 minuta sušiti, pa se burek poškropi rastopljenom mašću.
     
-    Nadljev\:
+    Nadljev:
     Meso se samelje (ne presitno), luk iskoše i na malo masti poprži samo da uvene. Mljevenom mesu se doda papar, sol, jaje i zeleni peršin, sve se dobro izmiješa i tim se nadjevom napune dvije trećine tijesta po duljini stola u hrpice, a tijesto koje visi preko ruba stola preklopi se i s obje kraće strane i s one do nadjeva. Preklopljeno tijesto se poškropi mašću i pita savije do ruba nenapunjenoga tijesta. Pita se složi u tepsiju namazanu mašću, površina se opet namaže mašću i peče u srednje vrućoj pećnici dok ne dobije lijepu rumenu boju (oko 45 minuta).
   category_id: 2
 
 6:
   naziv: Restani krumpir
-  body:  >
+  body:  |
     *Sastojci:*
     1 kg krumpira, kuhanog, oguljenog i izrezanog na ploške ili kocke
     3 velike žlice ulja ili masti
