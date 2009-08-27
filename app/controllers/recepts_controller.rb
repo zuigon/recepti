@@ -8,7 +8,7 @@ layout 'application'
     # @recepts = Recept.all
     if params[:kat_id].type == String
       @recepts = Recept.paginate( :all, :order => "naziv ASC",
-       :conditions => [ "category_id LIKE ?", params[:kat_id] ],
+       :conditions => [ "category_id = ?", params[:kat_id] ],
        :per_page => 10, :page => params[:page] )
     elsif params[:kat_id] == "ostale"
       @recepts = Recept.paginate( :all, :order => "naziv ASC",
