@@ -6,7 +6,7 @@ layout 'application'
   # GET /recepts.xml
   def index
     # @recepts = Recept.all
-    if params[:kat_id].to_i
+    if params[:kat_id] and params[:kat_id] != "ostale"
       @recepts = Recept.paginate( :all, :order => "naziv ASC",
        :conditions => [ "category_id = ?", params[:kat_id] ],
        :per_page => 10, :page => params[:page] )
