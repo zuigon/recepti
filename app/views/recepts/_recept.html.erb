@@ -1,0 +1,22 @@
+			<h2><%= link_to h(truncate(recept.naziv, :length => 20)), recept %></h2>
+			
+			<p><%
+						# word_wrap(recept.body, :line_width => 50).split("\n").[0..3].join("\n").to_s
+						def truncate_words(text, lines = 5, end_string = "\n ...")
+							txt_lines = text.split("\n")
+							txt_lines[0..(lines-1)].join("\n") + (txt_lines.size > lines ? end_string : '')
+						end
+						
+					-%>
+					<%= (truncate_words(recept.body_source, 10)) %>
+			</p>
+			
+			<p class="category">Kategorija: <%= if recept.category_id; begin
+																							h(Category.find(recept.category_id).name)
+																						rescue Exception => e; "<i>Nema</i>"; end; end -%>
+			</p>
+			<p><%= link_to 'Prikaži', recept %> |
+			<%= link_to 'Promijeni', edit_recept_path(recept) %> |
+			<%= link_to 'Obriši', recept, :confirm => 'Are you sure?', :method => :delete %></p>
+			
+			<div id="hr_div"></div>

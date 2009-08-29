@@ -12,6 +12,7 @@
 	http://localhost:3000/stylesheets/application.css?1251383176
 	http://localhost:3000/stylesheets/application.css?1251383842
 	http://localhost:3000/stylesheets/application.css?1251384077
+	http://localhost:3000/stylesheets/application.css?1251386799
 */
 
 td#footer {
@@ -54,8 +55,17 @@ body {
 }
 
 div#main {
+	width: 98%;
+}
+
+div#recepti {
 	float: right;
 	width: 80%;
+}
+
+p#novi_recept_link {
+	width: 100px;
+	bottom: 10px;
 }
 
 p#show_naslov {

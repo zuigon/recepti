@@ -4,21 +4,13 @@
 
 <div id="recepti">
 
-<% if @recepts[0] -%>
-	<% @recepts.each do |recept| -%>
-			<h2><%= link_to h(truncate(recept.naziv, :length => 20)), recept %></h2>
-			<p><%= recept.body %></p>
-			<p class="category">Kategorija: <%= if recept.category_id; begin
-																							h(Category.find(recept.category_id).name)
-																						rescue Exception => e; "<i>Nema</i>"; end; end -%></p>
-			<p><%= link_to 'Prikaži', recept %> |
-			<%= link_to 'Promijeni', edit_recept_path(recept) %> |
-			<%= link_to 'Obriši', recept, :confirm => 'Are you sure?', :method => :delete %></p>
-	<% end #each %><div id="hr_div"></div>
+<% if not @recepts.none? -%>
+
+<%= render :partial => 'recept', :collection => @recepts %>
 
 <% else -%>
 <br />
-<%= content_tag :div, "Nema recepata u ovoj kategoriji", :id => "flash_error" %>
+<%= content_tag :div, "Nema recepata u ovoj kategoriji", :id => "flash_error" -%>
 <br />
 <% end -%>
 
