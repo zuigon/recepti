@@ -2,11 +2,10 @@
 
 <p style="float: right; margin-right: 5%;" id="novi_recept_link_gore"><%= link_to 'Novi recept', new_recept_path %></p>
 
-<div id="recepti">
 
 <% if not @recepts.none? -%>
 
-<%= render :partial => 'recept', :collection => @recepts %>
+<div id="recepti"><%= render :partial => 'recept', :collection => @recepts %></div>
 
 <% else -%>
 <br />
@@ -14,7 +13,6 @@
 <br />
 <% end -%>
 
-</div>
 
 <% if not @recepts.none? -%>
 <p id="novi_recept_link"><%= link_to 'Novi recept', new_recept_path %></p>

@@ -1,0 +1,35 @@
+<% if @recept
+
+	form_remote_for @recept, { :url => recept_path(@recept)+'.js' }, :html => { :method => "put", :id => 'ajax_form' } do |f| %>
+
+	<%= f.hidden_field :ajax, :value => '1' %>
+
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :naziv %><br />
+    <%= f.text_field :naziv %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= (params[:action] == 'new') ? f.text_area(:body, :cols => "80", :style => "font-size: 12px;", :value => @recept_template) : f.text_area(:body, :cols => "80", :style => "font-size: 12px;") -%>
+  </p>
+  <p>
+    <% #= f.label 'Kategorija:' %><br />
+    <% #= f.text_field :category_id %><br />
+    <%= f.collection_select(:category_id , Category.find(:all), :id, :name, { :prompt => 'Odaberi kategoriju' }) %><br />
+    ili napravi novu:<br />
+    <%= f.text_field :new_category_name %>
+  </p>
+
+  <p>
+	<%= f.submit('Spremi (AJAX)') %>
+  </p>
+
+	<p>
+		<% #= link_to_remote("Update (link_to_remote)", :url => {:action => "update", :id => @query.id, :recept => }, :method => :put) %>
+		<%= link_to_function('save','ajax_form.submit()') %>
+	</p>
+
+<%   end #form_for -%>
+<% end #if -%>

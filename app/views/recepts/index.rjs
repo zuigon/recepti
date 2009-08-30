@@ -1,4 +1,0 @@
-
-# link_to_function("Show People", nil, :id => "more_link") do |page|
-# page.visual_effect(:toggle_appear, "organization-people")
-# page.replace_html("more_link", "Hide People")

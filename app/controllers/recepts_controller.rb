@@ -5,7 +5,7 @@ layout 'application'
   # GET /recepts
   # GET /recepts.xml
   def index
-    per_page = 10
+    per_page = 5
     # @recepts = Recept.all
     if params[:kat_id] and params[:kat_id] != "ostale"
       @recepts = Recept.paginate( :all, :order => "naziv ASC",
@@ -56,7 +56,24 @@ layout 'application'
 
   # GET /recepts/1/edit
   def edit
+
     @recept = Recept.find(params[:id])
+    # if params[:ajax] == '1'
+    #   render :layout => "layoutname"
+    # end
+    
+    respond_to do |format|
+      format.html
+      format.js do
+        # render :update do |page|
+        #   page.replace_html :flash_notice, flash[:notice]
+        #   page.replace_html dom_id(@recept), :partial => "ajax_form", :layout => ""
+        #   flash.discard
+        # end
+        render :partial => "ajax_form", :layout => ""
+      end
+    end
+
   end
 
   # POST /recepts
@@ -84,7 +101,20 @@ layout 'application'
     respond_to do |format|
       if @recept.update_attributes(params[:recept])
         flash[:notice] = 'Recept was successfully updated.'
-        format.html { redirect_to(@recept) }
+        format.html {
+          if params['recept[ajax]'] == '1'
+            render :update do |page|
+              ## page.replace_html :flash_notice, flash[:notice]
+              # page.insert_html :after, '#container h1', flash[:notice]
+              page.replace_html 'edit_recept_'+@recept.id, :partial => "recept", :layout => ""
+              flash.discard
+              page << "alert('Poruka iz _update_ ! !')"
+            end
+          else
+            redirect_to(@recept)
+          end
+          # render :partial => "recept", :layout => ""
+        }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

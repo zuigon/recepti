@@ -21,3 +21,5 @@ Rails::Initializer.run do |config|
 config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com' 
 
 end
+
+# ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(:default => '%d/%m/%Y %H:%M:%S')
