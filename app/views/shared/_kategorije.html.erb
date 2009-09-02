@@ -11,13 +11,13 @@
 
 	Category.find(:all, :order => "name").each { |category|
 		categories += "<li class='#{li_id}'>"
-		categories += "<i>" + link_to(category.name, "/" + params[:controller] + "/?kat_id=" + category.id.to_s) + "</i>"
+		categories += "<i>" + link_to(category.name, "/" + params[:controller] + "/?kat_id=" + category.id.to_s) + "(#{category.recept_ids.count})" + "</i>"
 		categories += "</li>\n"
 	}
 	# Ostale kat.
 	categories += "<li class='#{li_id}'>"
 	categories += "<i>"
-	categories += link_to("Ostale", "/recepts/?kat_id=ostale")
+	categories += link_to("Ostali recepti (#{})", "/recepts/?kat_id=ostali")
 	categories += "</i>"
 	categories += "</li>\n"
 

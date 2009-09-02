@@ -3,8 +3,8 @@
 # page.insert_html :before, 'flashes_content', (content_tag :div, flash[:notice], :id => "flash_notice")
 
 page.replace_html dom_id(@recept), :partial => "recepts/recept"
-
 page.replace_html :"#{dom_id(@recept)}_notice", (content_tag :div, flash[:notice], :id => "flash_notice")
+page.replace_html :sidebar, :partial => "shared/sidebar"
 
 page.delay(3.0) do
   page.select('#'+dom_id(@recept)+' #flash_notice').each { |item| item.hide }

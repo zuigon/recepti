@@ -1,7 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :recepts
+  # map.resources :categories
 
-  map.connect 'ajax/:id/ajax_update', :controller => "ajax", :action => "ajax_update"
+  # map.connect 'ajax/:id/ajax_update', :controller => "ajax", :action => "ajax_update"
+  
+  
   # map.connect 'recepts/:id/ajax_update.js', :controller => "recepts", :action => "ajax_update"
 
   # The priority is based upon order of creation: first created -> highest priority.

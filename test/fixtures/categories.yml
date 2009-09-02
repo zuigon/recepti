@@ -1,10 +1,9 @@
 predjela:
-  id:   1
+  id: 1
   name: Predjela
 gl_jela:
-  id:   2
+  id: 2
   name: Glavna jela
 prilozi:
-  id:   3
+  id: 3
   name: Prilozi
-

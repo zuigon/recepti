@@ -9,14 +9,20 @@
   <p>
     <%= f.label :body %><br />
     <%= (params[:action] == 'new') ? f.text_area(:body, :cols => "80", :style => "font-size: 12px;", :value => @recept_template) :
-																		 f.text_area(:body, :cols => "80", :style => "font-size: 12px;") -%>
+                                     f.text_area(:body, :cols => "80", :style => "font-size: 12px;") -%>
   </p>
   <p>
     <% #= f.label 'Kategorija:' %><br />
     <% #= f.text_field :category_id %><br />
-    <%= f.collection_select(:category_id , Category.find(:all), :id, :name, { :prompt => 'Odaberi kategoriju' }) %><br />
+    <% #= f.collection_select(:category_id , Category.find(:all), :id, :name, { :prompt => 'Odaberi kategoriju' }) %><br />
+
+
+    <%= select("Category", "categories_recepts", Category.all.collect {|c| [c.name, c.id ] }, { :include_blank => true, :prompt => 'Odaberi kategoriju' }) %>
+
+
     ili napravi novu:<br />
     <%= f.text_field :new_category_name %>
+
   </p>
   <p>
     <%= (params[:action] == 'new') ? f.submit('Dodaj') : f.submit('Spremi') %>

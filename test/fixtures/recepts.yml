@@ -19,7 +19,7 @@
     Burek pečemo u pećnici i još vruć razrežemo na 4 dijela. Uz burek odlično prija jogurt ili kiselo mlijeko.
     Burek pripremamo od slanih i slatkih nadjeva, npr. Sira, jetrica, špinata, skute, jabuka.
     Burek posebne vrste priprema se i kao veoma tanki svitak koji se smota u tepsiju."
-  category_id: 1
+  categories: predjela
 
 2:
   naziv: Dalmatinski pršut
@@ -38,7 +38,7 @@
     Pršut se složi na pliticu ili tanjur pa se ukrasi rikulom, maslinama i lučićima i salatom.
     *Savjet:*
     Uz pršut se preručuje tamni kruh koji se maže maslacem.
-  category_id: 1
+  categories: predjela
 
 3:
   naziv: Francuska salata
@@ -58,7 +58,7 @@
     
     *Priprema:*
     Krumpir. mrkvu, korijen peršun i celer, grašak, krastavce i jabuku zajedno izmiješajte. Dodajte majonezu izmiješanu sa senfom. kiselo vrhnje i po potrebi soli. Sve zajedno dobro izmiješajte i salatu složite u zdjelu. Francuska salata se ukrasi majonezom i kojim tvrdo kuhanim na kolute izrezanim jajetom.
-  category_id: 1
+  categories: predjela
 
 4:
   naziv: Bosanski lonac
@@ -87,7 +87,7 @@
     
     *Priprema:*
     Meso narežite na veće komade. Krumpir ogulite i narežite na kriške. Korjenasto povrće očistite i narežite na veće komade. Rajčice ogulite i narežite na kriške, a paprike na četvrtine. I mahune očistite, pa veće razrežite napola. Očišćeni luk narežite na veće komade, a glavice češnjaka ogulite samo izvana i stavite kuhati cijele pa će kuhane imati poseban okus. Slažite redove mesa i povrća, a između stavljajte začine. Mast otopite u pola litre vode, dodajte vino i time zalijte jelo. Pokrijte što bolje (nekad se zemljani lonac pokrivao pergamentom i vezao) i kuhajte tri-četiri sata da se sve raskuha (nekad se stavljalo u krušnu peć nakon pečenja kruha i ostavljalo preko noći). U ekspres-loncu kuhajte jedan sat i pol.
-  category_id: 2
+  categories: gl_jela
 
 5:
   naziv: Burek
@@ -113,9 +113,9 @@
     *Priprema:*
     (stari recept, orginalno prepisan) Od brašna, pola jajeta, soli, limunova soka i vode zamijesi se tijesto da otpada od daske i ruke te da bude mjehurasto, stavi se na dobro nabrašnjenu dasku i premaže uljem da se ne okori, te se pusti stajati 45 minuta. Stol se prekrije stolnjakom i pospe brašnom. Tijesto se izvuče na jednu i drugu stranu stola po duljini, koliko se lako da vući valjkom se izravna da se valja samo po duljini, namaže se rastopljenom mašću i sa svih se strana polagano vuče tako da se najprije dobije duljina stola, a onda se izvlači u širinu. Izvlači se tako dugo dok se da, tj. dok još ne puca rub. Nakon toga se rub odreže (ako se tom rubu doda još malo vode i dobro izmiješa, pa se pusti 3/4 sata stajati, dat će se razvlačiti kao i ono prvo), a tijesto se pusti najmanje 10 minuta sušiti, pa se burek poškropi rastopljenom mašću.
     
-    Nadljev:
+    *Nadljev:*
     Meso se samelje (ne presitno), luk iskoše i na malo masti poprži samo da uvene. Mljevenom mesu se doda papar, sol, jaje i zeleni peršin, sve se dobro izmiješa i tim se nadjevom napune dvije trećine tijesta po duljini stola u hrpice, a tijesto koje visi preko ruba stola preklopi se i s obje kraće strane i s one do nadjeva. Preklopljeno tijesto se poškropi mašću i pita savije do ruba nenapunjenoga tijesta. Pita se složi u tepsiju namazanu mašću, površina se opet namaže mašću i peče u srednje vrućoj pećnici dok ne dobije lijepu rumenu boju (oko 45 minuta).
-  category_id: 2
+  categories: gl_jela
 
 6:
   naziv: Restani krumpir
@@ -128,4 +128,4 @@
     
     *Priprema:*
     Na masnoći rumeno ispržite luk, zatim luku dodajte krumpir i sol, sve jako dobro izmiješajte, kratko pržite i restani krumpir odmah poslužite.
-  category_id: 3
+  categories: prilozi

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090826151549) do
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -17,10 +17,16 @@ ActiveRecord::Schema.define(:version => 20090826151549) do
     t.datetime "updated_at"
   end
 
+  create_table "categories_recepts", :id => false, :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "recept_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "recepts", :force => true do |t|
     t.string   "naziv"
     t.text     "body"
-    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,19 +1,21 @@
 <% title "Recept: " + @recept.naziv %>
 
 <p id="show_naslov">
-  <%= @recept.naziv %>
+  <%=h @recept.naziv %>
 </p>
+
 <div class="hr_div" />
+
 <p>
   <%= textilize_without_paragraph(@recept.body_source) %>
 </p>
-
+<br><br><br><br><br><br>
 <p>
-  <b>Kategorija:</b>
-  <%= @category.type == Category ? h(@category.name) : "<i>Nema</i>" %>
+  <b>Kategorije:</b>
+  <%=h @categories %>
 </p>
-
 
 <p><%= link_to 'Promijeni', edit_recept_path(@recept) %> |
 <%= link_to 'Nazad', recepts_path %> |
 <%= link_to 'Obriši', @recept, :confirm => 'Are you sure?', :method => :delete %></p>
+

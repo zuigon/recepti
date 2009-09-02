@@ -1,13 +1,13 @@
 <% if @recept
 
-	#remote_form_for :recept, @recept, :url => { :action => 'ajax_update', :id => @recept.id }, :html => { :method => "put", :class => "edit_post", :id => "edit_"+dom_id(@recept) } do |f| 
+  #remote_form_for :recept, @recept, :url => { :action => 'ajax_update', :id => @recept.id }, :html => { :method => "put", :class => "edit_post", :id => "edit_"+dom_id(@recept) } do |f| 
 
-	#remote_form_for @recept, :url => "ajax/"+@recept.id.to_s+"/ajax_update.js", :class => "edit_post", :id => "edit_"+dom_id(@recept) do |f|
+  #remote_form_for @recept, :url => "ajax/"+@recept.id.to_s+"/ajax_update.js", :class => "edit_post", :id => "edit_"+dom_id(@recept) do |f|
 
-	remote_form_for @recept, :url => { :action => "update" }, :class => "edit_post", :id => "edit_"+dom_id(@recept) do |f| %>
+  remote_form_for @recept, :url => { :action => "update" }, :class => "edit_post", :id => "edit_"+dom_id(@recept) do |f| %>
 
-	<% #= f.hidden_field :ajax, :value => '1' %>
-	<% #= f.hidden_field :_method, :value => 'put' %>
+  <% #= f.hidden_field :ajax, :value => '1' %>
+  <% #= f.hidden_field :_method, :value => 'put' %>
 
   <%= f.error_messages %>
 
@@ -17,24 +17,25 @@
   </p>
   <p>
     <%= f.label :body %><br />
-    <%= (params[:action] == 'new') ? f.text_area(:body, :cols => "80", :style => "font-size: 12px;", :value => @recept_template) : f.text_area(:body, :cols => "80", :style => "font-size: 12px;") -%>
+    <%= (params[:action] == 'new') ?  f.text_area(:body, :cols => "80", :style => "font-size: 12px;", :value => @recept_template) :
+                                      f.text_area(:body, :cols => "80", :style => "font-size: 12px;") -%>
   </p>
   <p>
     <% #= f.label 'Kategorija:' %><br />
     <% #= f.text_field :category_id %><br />
-    <%= f.collection_select(:category_id , Category.find(:all), :id, :name, { :prompt => 'Odaberi kategoriju' }) %><br />
+    <%= f.collection_select(:category_ids , Category.find(:all), :id, :name, { :prompt => 'Odaberi kategoriju' }) %><br />
     ili napravi novu:<br />
     <%= f.text_field :new_category_name %>
   </p>
 
   <p>
-	<%= f.submit('Spremi (AJAX)') %>
+  <%= f.submit('Spremi (AJAX)') %>
   </p>
 
-	<p>
-		<% #= link_to_remote("Update (link_to_remote)", :url => {:action => "update", :id => @query.id, :recept => }, :method => :put) %>
-		<%= link_to_function('save','ajax_form.submit()') %>
-	</p>
+  <p>
+    <% #= link_to_remote("Update (link_to_remote)", :url => {:action => "update", :id => @query.id, :recept => }, :method => :put) %>
+    <%= link_to_function('save','ajax_form.submit()') %>
+  </p>
 
 <%   end #form_for -%>
 <% end #if -%>

@@ -9,9 +9,15 @@
 					<%= sanitize(textilize_without_paragraph(truncate_lines(recept.body_source, 10)), :tags => %w(h1 a br b strong)) -%>
 
 			</p>
-			<p class="category">Kategorija: <%= if recept.category_id; begin
-																							h(Category.find(recept.category_id).name)
-																						rescue Exception => e; "<i>Nema</i>"; end; end -%>
+			<p class="category">Kategorija: <%=
+				if recept.categories_recepts != []
+					begin
+						# recept.categories_recepts.collect { |cat| Category.find(cat.category_id).name }
+						(recept.categories_recepts.collect { |cat| Category.find(cat.category_id).name } ).join(", ")
+					rescue Exception => e
+						"<i>Nema</i>"
+					end
+				end -%>
 			</p>
 			<p><%= link_to 'Prikaži', recept %> |
 				<% #@recept = recept %>
@@ -24,7 +30,17 @@
 				<% #= remote_function(:url => recept_path(recept), :method => :put, :update => dom_id(recept) ) -%>
 
 			<%= link_to 'Promijeni', edit_recept_path(recept) %> |
-			<%= link_to 'Obriši', recept, :confirm => 'Are you sure?', :method => :delete %></p>
+			<%= link_to 'Obriši', recept, :confirm => 'Are you sure?', :method => :delete %> |
+
+			<%= link_to_remote 'Obriši (AJAX)',
+					:url => recept_path(recept),
+					:method => :delete,
+					# :position => :top,
+					:confirm => 'Are you sure?' %>
+
+				<% #= link_to_remote 'Obriši (AJAX)', :url => { :action => 'destroy', :id => recept.id } -%>
+
+			</p>
 
 			<div class="hr_div"></div>
 

@@ -8,10 +8,22 @@ layout 'application'
     per_page = 5
     # @recepts = Recept.all
     if params[:kat_id] and params[:kat_id] != "ostale"
-      @recepts = Recept.paginate( :all, :order => "naziv ASC",
-       :conditions => [ "category_id = ?", params[:kat_id] ],
+      # @recepts = Recept.paginate( :all, :order => "naziv ASC",
+      #  :conditions => [ "category_id = ?", params[:kat_id] ],
+      #  :per_page => per_page, :page => params[:page] )
+      
+      # @category = Category.find(params[:kat_id])
+      @recepts  = Recept.paginate( :all,
+       # :order => "name ASC",
+       # :conditions => [ "category_id = ?", params[:kat_id] ],
+       
+       :include => 'category',
+       :conditions => [ 'categories.id = ?', params[:kat_id] ],
+       
        :per_page => per_page, :page => params[:page] )
-    elsif params[:kat_id] == "ostale"
+      
+      
+    elsif params[:kat_id] == "ostali"
       # @recepts = Recept.paginate( :all, :order => "naziv ASC",
       #   :conditions => [ "category_id = NULL" ],
       #   :per_page => per_page, :page => params[:page] )
@@ -37,9 +49,10 @@ layout 'application'
   def show
     @recept = Recept.find(params[:id])
     # @category = (@recept.category_id) ? Category.find(@recept.category_id) : nil
-    @category = begin
-                  Category.find(@recept.category_id)
-                rescue; ""; end
+    @categories = begin
+                    (@recept.categories_recepts.collect { |cat| Category.find(cat.category_id).name } ).join(", ")
+                    # @categories.each{ |cat| cat.name }).join(", ") : "<i>Nema</i>"
+                  rescue Exception => e; "<i>Nema</i> #{e}"; end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -51,7 +64,7 @@ layout 'application'
   # GET /recepts/new.xml
   def new
     @recept = Recept.new
-    @recept_template = File.open(RAILS_ROOT + "/app/views/shared/_recept_template.erb").readlines.join
+    @recept_template = File.open(RAILS_ROOT + "/app/views/shared/_recept_template.erb").readlines.join("")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -120,7 +133,7 @@ layout 'application'
           # end
           # render :partial => "recept", :layout => ""
         }
-        format.js   { }
+        format.js
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -134,11 +147,14 @@ layout 'application'
   # DELETE /recepts/1.xml
   def destroy
     @recept = Recept.find(params[:id])
+    @recept_dom_id = dom_id(@recept)
     @recept.destroy
 
     respond_to do |format|
       format.html { redirect_to(recepts_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
+
 end
