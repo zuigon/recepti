@@ -5,7 +5,8 @@
 			<p>
 					<% #= sanitize_fu(textilize_without_paragraph(truncate_lines(recept.body_source, 10))) -%>
 					<% # => = textilize_without_paragraph(truncate_lines(recept.body_source, 10)).gsub(/<\/?[^>]*>/, "") -%>
-					<%= sanitize(textilize_without_paragraph(truncate_lines(recept.body_source, 10)), :tags => %w(h1 a p br b strong)) -%>
+					<% #= sanitize(textilize_without_paragraph(truncate_lines(recept.body_source, 10)), :tags => %w(h1 a p br b strong)) -%>
+					<%= sanitize(textilize_without_paragraph(truncate_lines(recept.body_source, 10)), :tags => %w(h1 a br b strong)) -%>
 
 			</p>
 			<p class="category">Kategorija: <%= if recept.category_id; begin
