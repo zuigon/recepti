@@ -5,17 +5,17 @@
 	categories = ""
 	categories += "<ul>"
 	# Sve kat.
-	categories += "<li id='#{li_id}'>"
+	categories += "<li class='#{li_id}'>"
 	categories += link_to("Sve", recepts_path)
 	categories += "</li>\n"
 
 	Category.find(:all, :order => "name").each { |category|
-		categories += "<li id='kat_link'>"
+		categories += "<li class='#{li_id}'>"
 		categories += "<i>" + link_to(category.name, "/" + params[:controller] + "/?kat_id=" + category.id.to_s) + "</i>"
 		categories += "</li>\n"
 	}
 	# Ostale kat.
-	categories += "<li id='#{li_id}'>"
+	categories += "<li class='#{li_id}'>"
 	categories += "<i>"
 	categories += link_to("Ostale", "/recepts/?kat_id=ostale")
 	categories += "</i>"
