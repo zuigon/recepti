@@ -6,20 +6,25 @@
 	categories += "<ul>"
 	# Sve kat.
 	categories += "<li class='#{li_id}'>"
-	categories += link_to("Sve", recepts_path)
+	categories += link_to("Sve", recepts_path) + " (#{Recept.count})"
 	categories += "</li>\n"
 
 	Category.find(:all, :order => "name").each { |category|
 		categories += "<li class='#{li_id}'>"
-		categories += "<i>" + link_to(category.name, "/" + params[:controller] + "/?kat_id=" + category.id.to_s) + "(#{category.recept_ids.count})" + "</i>"
+		categories += "<i>" + link_to(category.name, "/" + params[:controller] + "/?kat_id=" + category.id.to_s) + " (#{category.recept_ids.count})" + "</i>"
 		categories += "</li>\n"
 	}
 	# Ostale kat.
-	categories += "<li class='#{li_id}'>"
-	categories += "<i>"
-	categories += link_to("Ostali recepti (#{})", "/recepts/?kat_id=ostali")
-	categories += "</i>"
-	categories += "</li>\n"
+	@ostale_cats  = Category.find(:all, :include => 'recept', :conditions => 'recepts.id = NULL')
+	@ostale_count = begin
+		@ostale_cats.categories_recepts.count
+	rescue Exception => e
+		0
+	end
+
+	categories  += "<li class='#{li_id}'>"
+	categories  += "<i>" + link_to("Ostali recepti", "/recepts/?kat_id=ostali") + " (#{@ostale_count})" + "</i>"
+	categories  += "</li>\n"
 
 	categories += "</ul>\n"
 -%>

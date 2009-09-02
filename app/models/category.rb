@@ -3,7 +3,8 @@ class Category < ActiveRecord::Base
 
   has_many :categories_recepts
   has_many :recept, :through => :categories_recepts
-
+  
+  # has_and_belongs_to_many :recept, :join_table => "categories_recepts"
 
   validates_presence_of :name
   validates_length_of :name, :within => 2..30

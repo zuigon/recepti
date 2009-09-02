@@ -17,11 +17,20 @@
     <% #= f.collection_select(:category_id , Category.find(:all), :id, :name, { :prompt => 'Odaberi kategoriju' }) %><br />
 
 
-    <%= select("Category", "categories_recepts", Category.all.collect {|c| [c.name, c.id ] }, { :include_blank => true, :prompt => 'Odaberi kategoriju' }) %>
+    <%= select( "Category", "categories_recepts",
+          Category.all.collect {|c| [c.name, c.id ] },
+          { :include_blank => true, :prompt => 'Odaberi kategoriju' } )
+    -%>
 
 
     ili napravi novu:<br />
     <%= f.text_field :new_category_name %>
+
+
+    <% #for cats in @recept.categories_recepts -%>
+			<% #= check_box_tag "categories_recepts[]", "#{intr.id}" -%>
+			<% #= "#{intr.name}" -%>
+		<% #end -%>
 
   </p>
   <p>
