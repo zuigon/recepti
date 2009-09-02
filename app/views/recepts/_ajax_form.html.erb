@@ -1,8 +1,13 @@
 <% if @recept
 
-	form_remote_for @recept, { :url => recept_path(@recept)+'.js' }, :html => { :method => "put", :id => 'ajax_form' } do |f| %>
+	#remote_form_for :recept, @recept, :url => { :action => 'ajax_update', :id => @recept.id }, :html => { :method => "put", :class => "edit_post", :id => "edit_"+dom_id(@recept) } do |f| 
 
-	<%= f.hidden_field :ajax, :value => '1' %>
+	#remote_form_for @recept, :url => "ajax/"+@recept.id.to_s+"/ajax_update.js", :class => "edit_post", :id => "edit_"+dom_id(@recept) do |f|
+
+	remote_form_for @recept, :url => { :action => "update" }, :class => "edit_post", :id => "edit_"+dom_id(@recept) do |f| %>
+
+	<% #= f.hidden_field :ajax, :value => '1' %>
+	<% #= f.hidden_field :_method, :value => 'put' %>
 
   <%= f.error_messages %>
 

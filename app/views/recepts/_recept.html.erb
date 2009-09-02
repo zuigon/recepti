@@ -1,15 +1,12 @@
 		<div id="<%= dom_id(recept) %>">
+			<div id="<%= dom_id(recept) %>_notice"></div>
 			<h2><%= link_to h(truncate(recept.naziv, :length => 20)), recept %></h2>
 			<p><%= recept.created_at.strftime('%d.%m.%Y. %H:%M:%S') %></p>
-			<p><%
-						# word_wrap(recept.body, :line_width => 50).split("\n").[0..3].join("\n").to_s
-						def truncate_words(text, lines = 5, end_string = "\n ...")
-							txt_lines = text.split("\n")
-							txt_lines[0..(lines-1)].join("\n") + (txt_lines.size > lines ? end_string : '')
-						end
-						
-					-%>
-					<%= textilize_without_paragraph(truncate_words(recept.body_source, 10)) -%>
+			<p>
+					<% #= sanitize_fu(textilize_without_paragraph(truncate_lines(recept.body_source, 10))) -%>
+					<% # => = textilize_without_paragraph(truncate_lines(recept.body_source, 10)).gsub(/<\/?[^>]*>/, "") -%>
+					<%= sanitize(textilize_without_paragraph(truncate_lines(recept.body_source, 10)), :tags => %w(h1 a p br b strong)) -%>
+
 			</p>
 			<p class="category">Kategorija: <%= if recept.category_id; begin
 																							h(Category.find(recept.category_id).name)
@@ -19,9 +16,9 @@
 				<% #@recept = recept %>
 				<% #= link_to_function("Do AJAX test", nil) do |page| # page.replace_html dom_id(recept), :partial => 'form', :object => @recept; end -%>
 
-				<%= link_to_remote "Do AJAX test",
+				<%= link_to_remote "Promijeni (AJAX)",
 							{ :url => { :action => "edit", :id => recept.id, :ajax => "1" },
-							:method => :get, :update => dom_id(recept) } -%>
+							:method => :get, :update => dom_id(recept) } -%> |
 
 				<% #= remote_function(:url => recept_path(recept), :method => :put, :update => dom_id(recept) ) -%>
 

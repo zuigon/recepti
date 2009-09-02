@@ -100,25 +100,27 @@ layout 'application'
 
     respond_to do |format|
       if @recept.update_attributes(params[:recept])
-        flash[:notice] = 'Recept was successfully updated.'
+        flash[:notice] = 'Recept je promijenjen.'
         format.html {
-          if params['recept[ajax]'] == '1'
-            render :update do |page|
-              ## page.replace_html :flash_notice, flash[:notice]
-              # page.insert_html :after, '#container h1', flash[:notice]
-              page.replace_html 'edit_recept_'+@recept.id, :partial => "recept", :layout => ""
-              flash.discard
-              page << "alert('Poruka iz _update_ ! !')"
-            end
-          else
+          # if params['recept[ajax]'] == '1'
+            # render :update do |page|
+            #   ## page.replace_html :flash_notice, flash[:notice]
+            #   # page.insert_html :after, '#container h1', flash[:notice]
+            #   page.replace_html 'edit_recept_'+@recept.id, :partial => "recept", :layout => ""
+            #   flash.discard
+            #   page << "alert('Poruka iz _update_ ! !')"
+            # end
+          # else
             redirect_to(@recept)
-          end
+          # end
           # render :partial => "recept", :layout => ""
         }
+        format.js   { }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @recept.errors, :status => :unprocessable_entity }
+        format.js   { }
       end
     end
   end

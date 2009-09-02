@@ -1,0 +1,19 @@
+# page.replace_html :flashes, (content_tag :div, flash[:notice], :id => "flash_notice")
+
+# page.insert_html :before, 'flashes_content', (content_tag :div, flash[:notice], :id => "flash_notice")
+
+page.replace_html dom_id(@recept), :partial => "recepts/recept"
+
+page.replace_html :"#{dom_id(@recept)}_notice", (content_tag :div, flash[:notice], :id => "flash_notice")
+
+page.delay(3.0) do
+  page.select('#'+dom_id(@recept)+' #flash_notice').each { |item| item.hide }
+end
+
+# page.visual_effect  :highlight, dom_id(@recept),
+                    # :startcolor => "'#ff0000'"
+
+
+# page['task_form'].reset
+
+flash.discard
