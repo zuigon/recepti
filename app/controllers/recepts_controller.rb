@@ -12,10 +12,15 @@ layout 'application'
        :conditions => [ "category_id = ?", params[:kat_id] ],
        :per_page => per_page, :page => params[:page] )
     elsif params[:kat_id] == "ostale"
-      @recepts = Recept.paginate( :all, :order => "naziv ASC",
+      # @recepts = Recept.paginate( :all, :order => "naziv ASC",
+      #   :conditions => [ "category_id = NULL" ],
+      #   :per_page => per_page, :page => params[:page] )
+      @recepts = Category.paginate( :all, :order => "naziv ASC",
         :conditions => [ "category_id = NULL" ],
         :per_page => per_page, :page => params[:page] )
     else
+      # @recepts = Recept.paginate( :all, :order => "naziv ASC",
+      #   :per_page => per_page, :page => params[:page] )
       @recepts = Recept.paginate( :all, :order => "naziv ASC",
         :per_page => per_page, :page => params[:page] )
     end
