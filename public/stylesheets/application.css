@@ -99,7 +99,7 @@ p#show_naslov {
 	border-bottom-color: #eaeaea;
 }
 
-div#hr_div {
+div.hr_div {
 	height: 2px;
 	width: 98%;
 	border-bottom: 2px solid #eaeaea;
