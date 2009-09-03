@@ -20,8 +20,8 @@ class Recept < ActiveRecord::Base
   def create_category_from_name
     if not new_category_name.to_s.empty?
       # Category.create!(:name => new_category_name)
-      c = Category.create!(:name => new_category_name)
-      self.category << c
+      # c = Category.create(:name => new_category_name)
+      self.category << Category.create(:name => new_category_name)
       self.save
       # new_category_id = Category.find(:all, :conditions => [ "name = ?", new_category_name ], :select => "id")[0].id
       # self.category_id = new_category_id

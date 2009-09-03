@@ -1,0 +1,5 @@
+<%= if category != []
+			# (@recept.categories_recepts.collect { |cat| Category.find(cat.category_id).name } ).join(", ")
+			(category.collect { |cat| link_to "#{cat.name}", :action => "index", :kat_id => cat.id }).join(", ") || "<i>Nema</i>"
+		else "<i>Nema</i>"; end
+-%>

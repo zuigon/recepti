@@ -16,11 +16,14 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 
-  config.time_zone = 'UTC'
+  config.time_zone = 'Zagreb'
 
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem "RedCloth"
 
 end
+
+# Disable AutoIndent
+Haml::Template::options[:ugly] = true
 
 # ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(:default => '%d/%m/%Y %H:%M:%S')

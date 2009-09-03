@@ -22,14 +22,27 @@
           { :include_blank => true, :prompt => 'Odaberi kategoriju' } )
     -%>
 
-
     ili napravi novu:<br />
-    <%= f.text_field :new_category_name %>
+    <%= f.text_field :new_category_name -%>
 
 
-    <% #for cats in @recept.categories_recepts -%>
-			<% #= check_box_tag "categories_recepts[]", "#{intr.id}" -%>
-			<% #= "#{intr.name}" -%>
+    <% #for category in @recept.category -%>
+			<p><% #= check_box_tag "categories_recepts[]", "#{category.id}" -%>
+
+			<% #= select( "Category", "categories_recepts[]",
+				 #[category.name, category.id ],
+				 #{ :include_blank => true, :prompt => 'Odaberi kategoriju' } )
+			-%>
+
+			<% #= f.collection_select(:category_ids , Category.find(:all), :id, :name,
+					#	{ :prompt => 'Odaberi kategoriju' }) %>
+			-%>
+
+		 <% # collection_select(object,  method,        collection,          value_method, text_method, options = {}, html_options = {}) %>
+<%= collection_select :recept, :category_ids,
+		Category.find(:all, :order => "name ASC"), :id, :name, {}, { :multiple => 1, :name => 'recept[category_ids][]' } -%>
+
+			</p>
 		<% #end -%>
 
   </p>

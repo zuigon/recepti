@@ -12,7 +12,7 @@
 <br />
 <p>
   <b>Kategorije:</b>
-  <%=h @categories %>
+  <%= render :partial => 'kategorije', :locals => { :category => @recept.category } %>
 </p>
 
 <p><%= link_to 'Promijeni', edit_recept_path(@recept) %> |

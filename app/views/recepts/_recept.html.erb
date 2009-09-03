@@ -1,24 +1,14 @@
 		<div id="<%= dom_id(recept) %>">
 			<div id="<%= dom_id(recept) %>_notice"></div>
 			<h2><%= link_to h(truncate(recept.naziv, :length => 20)), recept %></h2>
-			<p><%= recept.created_at.strftime('%d.%m.%Y. %H:%M:%S') %></p>
+			<small><%= recept.created_at.strftime('%d.%m.%Y. %H:%M:%S') %></small>
 			<p>
-					<% #= sanitize_fu(textilize_without_paragraph(truncate_lines(recept.body_source, 10))) -%>
-					<% # => = textilize_without_paragraph(truncate_lines(recept.body_source, 10)).gsub(/<\/?[^>]*>/, "") -%>
-					<% #= sanitize(textilize_without_paragraph(truncate_lines(recept.body_source, 10)), :tags => %w(h1 a p br b strong)) -%>
+					<% 	#= sanitize_fu(textilize_without_paragraph(truncate_lines(recept.body_source, 10))) 
+							# => = textilize_without_paragraph(truncate_lines(recept.body_source, 10)).gsub(/<\/?[^>]*>/, "")
+							#= sanitize(textilize_without_paragraph(truncate_lines(recept.body_source, 10)), :tags => %w(h1 a p br b strong)) -%>
 					<%= sanitize(textilize_without_paragraph(truncate_lines(recept.body_source, 10)), :tags => %w(h1 a br b strong)) -%>
-
 			</p>
-			<p class="category">Kategorija: <%=
-				if recept.categories_recepts != []
-					begin
-						# recept.categories_recepts.collect { |cat| Category.find(cat.category_id).name }
-						(recept.categories_recepts.collect { |cat| Category.find(cat.category_id).name } ).join(", ")
-					rescue Exception => e
-						"<i>Nema</i>"
-					end
-				end -%>
-			</p>
+			<p class="category">Kategorije: <%= render :partial => "kategorije", :locals => { :category => recept.category } %></p>
 			<p><%= link_to 'Prikaži', recept %> |
 				<% #@recept = recept %>
 				<% #= link_to_function("Do AJAX test", nil) do |page| # page.replace_html dom_id(recept), :partial => 'form', :object => @recept; end -%>

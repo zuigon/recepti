@@ -9,7 +9,8 @@
 
 <% else -%>
 <br />
-<%= content_tag :div, "Nema recepata u ovoj kategoriji", :id => "flash_error" -%>
+<%= params[:kat_id] ? content_tag(:div, "Nema recepata u ovoj kategoriji", :id => "flash_error") :
+                      content_tag(:div, "Nema recepata !", :id => "flash_error") -%>
 <br />
 <% end -%>
 

@@ -1,5 +1,6 @@
 
 1:
+  id: 1
   naziv: Burek s mesom
   body:  |
     *Sastojci:*
@@ -19,9 +20,9 @@
     Burek pečemo u pećnici i još vruć razrežemo na 4 dijela. Uz burek odlično prija jogurt ili kiselo mlijeko.
     Burek pripremamo od slanih i slatkih nadjeva, npr. Sira, jetrica, špinata, skute, jabuka.
     Burek posebne vrste priprema se i kao veoma tanki svitak koji se smota u tepsiju."
-  categories: predjela
 
 2:
+  id: 2
   naziv: Dalmatinski pršut
   body:  |
     *Sastojci:*
@@ -38,9 +39,9 @@
     Pršut se složi na pliticu ili tanjur pa se ukrasi rikulom, maslinama i lučićima i salatom.
     *Savjet:*
     Uz pršut se preručuje tamni kruh koji se maže maslacem.
-  categories: predjela
 
 3:
+  id: 3
   naziv: Francuska salata
   body:  |
     *Sastojci:*
@@ -58,9 +59,9 @@
     
     *Priprema:*
     Krumpir. mrkvu, korijen peršun i celer, grašak, krastavce i jabuku zajedno izmiješajte. Dodajte majonezu izmiješanu sa senfom. kiselo vrhnje i po potrebi soli. Sve zajedno dobro izmiješajte i salatu složite u zdjelu. Francuska salata se ukrasi majonezom i kojim tvrdo kuhanim na kolute izrezanim jajetom.
-  categories: predjela
 
 4:
+  id: 4
   naziv: Bosanski lonac
   body:  |
     *Sastojci:*
@@ -87,9 +88,9 @@
     
     *Priprema:*
     Meso narežite na veće komade. Krumpir ogulite i narežite na kriške. Korjenasto povrće očistite i narežite na veće komade. Rajčice ogulite i narežite na kriške, a paprike na četvrtine. I mahune očistite, pa veće razrežite napola. Očišćeni luk narežite na veće komade, a glavice češnjaka ogulite samo izvana i stavite kuhati cijele pa će kuhane imati poseban okus. Slažite redove mesa i povrća, a između stavljajte začine. Mast otopite u pola litre vode, dodajte vino i time zalijte jelo. Pokrijte što bolje (nekad se zemljani lonac pokrivao pergamentom i vezao) i kuhajte tri-četiri sata da se sve raskuha (nekad se stavljalo u krušnu peć nakon pečenja kruha i ostavljalo preko noći). U ekspres-loncu kuhajte jedan sat i pol.
-  categories: gl_jela
 
 5:
+  id: 5
   naziv: Burek
   body:  |
     *Sastojci:*
@@ -115,9 +116,9 @@
     
     *Nadljev:*
     Meso se samelje (ne presitno), luk iskoše i na malo masti poprži samo da uvene. Mljevenom mesu se doda papar, sol, jaje i zeleni peršin, sve se dobro izmiješa i tim se nadjevom napune dvije trećine tijesta po duljini stola u hrpice, a tijesto koje visi preko ruba stola preklopi se i s obje kraće strane i s one do nadjeva. Preklopljeno tijesto se poškropi mašću i pita savije do ruba nenapunjenoga tijesta. Pita se složi u tepsiju namazanu mašću, površina se opet namaže mašću i peče u srednje vrućoj pećnici dok ne dobije lijepu rumenu boju (oko 45 minuta).
-  categories: gl_jela
 
 6:
+  id: 6
   naziv: Restani krumpir
   body:  |
     *Sastojci:*
@@ -128,4 +129,3 @@
     
     *Priprema:*
     Na masnoći rumeno ispržite luk, zatim luku dodajte krumpir i sol, sve jako dobro izmiješajte, kratko pržite i restani krumpir odmah poslužite.
-  categories: prilozi

@@ -3,7 +3,6 @@ class CreateRecepts < ActiveRecord::Migration
     create_table :recepts do |t|
       t.string  :naziv
       t.text    :body
-      # t.integer :category_id
 
       t.timestamps
     end

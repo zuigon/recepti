@@ -14,10 +14,10 @@ layout 'application'
       
       # @category = Category.find(params[:kat_id])
       @recepts  = Recept.paginate( :all,
-       # :order => "name ASC",
-       # :conditions => [ "category_id = ?", params[:kat_id] ],
-       :include => 'category',
-       :conditions => [ 'categories.id = ?', params[:kat_id] ],
+        :order => "naziv ASC",
+        # :conditions => [ "category_id = ?", params[:kat_id] ],
+        :include => 'category',
+        :conditions => [ 'categories.id = ?', params[:kat_id] ],
        :per_page => per_page, :page => params[:page] )
       
     elsif params[:kat_id] == "ostali"
@@ -26,7 +26,7 @@ layout 'application'
       #   :per_page => per_page, :page => params[:page] )
 
       @recepts  = Recept.paginate( :all,
-       # :order => "name ASC",
+       :order => "naziv ASC",
        # :conditions => [ "category_id = ?", params[:kat_id] ],
        :include => 'category',
        :conditions => 'categories.id = NULL',
@@ -34,7 +34,9 @@ layout 'application'
     else
       # @recepts = Recept.paginate( :all, :order => "naziv ASC",
       #   :per_page => per_page, :page => params[:page] )
-      @recepts = Recept.paginate( :all, :order => "naziv ASC",
+      @recepts = Recept.paginate( :all, 
+        :order => "naziv ASC",
+        :include => 'category',
         :per_page => per_page, :page => params[:page] )
     end
 
@@ -50,10 +52,6 @@ layout 'application'
   def show
     @recept = Recept.find(params[:id])
     # @category = (@recept.category_id) ? Category.find(@recept.category_id) : nil
-    @categories = begin
-                    (@recept.categories_recepts.collect { |cat| Category.find(cat.category_id).name } ).join(", ")
-                    # @categories.each{ |cat| cat.name }).join(", ") : "<i>Nema</i>"
-                  rescue Exception => e; "<i>Nema</i> #{e}"; end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -99,6 +97,7 @@ layout 'application'
   # POST /recepts.xml
   def create
     @recept = Recept.new(params[:recept])
+    params[:recept][:category_ids] ||= []
 
     respond_to do |format|
       if @recept.save
@@ -116,6 +115,7 @@ layout 'application'
   # PUT /recepts/1.xml
   def update
     @recept = Recept.find(params[:id])
+    params[:recept][:category_ids] ||= []
 
     respond_to do |format|
       if @recept.update_attributes(params[:recept])

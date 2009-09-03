@@ -6,12 +6,12 @@
 	categories += "<ul>"
 	# Sve kat.
 	categories += "<li class='#{li_id}'>"
-	categories += link_to("Sve", recepts_path) + " (#{Recept.count})"
+	categories += "<i>" + link_to("Sve", recepts_path) + " (#{Recept.count})" + "</i>"
 	categories += "</li>\n"
 
 	Category.find(:all, :order => "name").each { |category|
 		categories += "<li class='#{li_id}'>"
-		categories += "<i>" + link_to(category.name, "/" + params[:controller] + "/?kat_id=" + category.id.to_s) + " (#{category.recept_ids.count})" + "</i>"
+		categories += link_to(category.name, "/" + params[:controller] + "/?kat_id=" + category.id.to_s) + " (#{category.recept_ids.count})"
 		categories += "</li>\n"
 	}
 	# Ostale kat.
