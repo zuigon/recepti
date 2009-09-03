@@ -94,7 +94,6 @@ p#novi_recept_link {
 }
 
 p#show_naslov {
-	text-transform: capitalize;
 	font-size: 14pt;
 	border-bottom-color: #eaeaea;
 }

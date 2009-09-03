@@ -17,9 +17,9 @@
     <% #= f.collection_select(:category_id , Category.find(:all), :id, :name, { :prompt => 'Odaberi kategoriju' }) %><br />
 
 
-    <%= select( "Category", "categories_recepts",
-          Category.all.collect {|c| [c.name, c.id ] },
-          { :include_blank => true, :prompt => 'Odaberi kategoriju' } )
+    <% #= select( "Category", "categories_recepts",
+       #   Category.all.collect {|c| [c.name, c.id ] },
+       #   { :include_blank => true, :prompt => 'Odaberi kategoriju' } )
     -%>
 
     ili napravi novu:<br />
@@ -38,9 +38,9 @@
 					#	{ :prompt => 'Odaberi kategoriju' }) %>
 			-%>
 
-		 <% # collection_select(object,  method,        collection,          value_method, text_method, options = {}, html_options = {}) %>
-<%= collection_select :recept, :category_ids,
-		Category.find(:all, :order => "name ASC"), :id, :name, {}, { :multiple => 1, :name => 'recept[category_ids][]' } -%>
+		 <% # collection_select(object, method, collection, alue_method, text_method, options = {}, html_options = {}) %>
+		<%= collection_select :recept, :category_ids,
+			Category.find(:all, :order => "name ASC"), :id, :name, {}, { :multiple => 1, :name => 'recept[category_ids][]', :style => "width: 200px;" } -%>
 
 			</p>
 		<% #end -%>
